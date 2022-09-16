@@ -22,7 +22,7 @@ export default function Products() {
   
   const {register, handleSubmit, reset} = useForm()
 
-  const deleteProduct = async (id:Number) => {
+  const deleteProduct = async (id:number) => {
     if(window.confirm('Are you sure you want to delete this product?')){
 
       await fetch(`${configs.backend}/products/delete`, {
@@ -47,7 +47,7 @@ export default function Products() {
     setDataProducts(products);
   };
 
-  const fetchOneProduct = async (productId: Number) => {
+  const fetchOneProduct = async (productId: number) => {
     const resOneProduct = await fetch(
       `${configs.backend}/products/find-one/${productId}`
     );
