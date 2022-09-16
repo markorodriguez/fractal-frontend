@@ -211,13 +211,11 @@ export default function OrderDetails() {
                                     defaultValue={selectedItem.product.id}
                                     {...register("product.id")}
                                     required
+                                    onChange={(e)=>{fetchOneProduct(parseInt(e.target.value))}}
                                 >
                                     {products.map((product, index) => {
                                         return (
                                             <option
-                                                onClick={() => {
-                                                    fetchOneProduct(product.id);
-                                                }}
                                                 key={"optionCategory" + index}
                                                 value={product.id}
                                             >
@@ -242,6 +240,7 @@ export default function OrderDetails() {
                                 <Form.Label>Unit Price</Form.Label>
                                 <Form.Control
                                     type="text"
+                                    defaultValue={"$ " + selectedProduct?.price}
                                     value={"$ " + selectedProduct?.price}
                                     disabled
                                 />
@@ -405,6 +404,7 @@ export default function OrderDetails() {
                     <Button
                         className="px-4"
                         onClick={() => {
+                            reset()
                             fetchOneProduct(1);
                             setShowModalNew(true);
                         }}
