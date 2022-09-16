@@ -13,7 +13,7 @@ export default function Order() {
   const [dataUsers, setDataUsers] = useState<any[]>([]);
 
   const fetchOrders = async () => {
-    const res = await fetch("http://localhost:8080/api/orders/find-all");
+    const res = await fetch(`${configs.backend}/orders/find-all`);
     const orders = await res.json();
     setDataOrders(orders);
   };

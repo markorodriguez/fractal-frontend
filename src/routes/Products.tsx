@@ -41,7 +41,7 @@ export default function Products() {
   }
 
   const fetchProducts = async () => {
-    const res = await fetch("http://localhost:8080/api/products/find-all");
+    const res = await fetch(`${configs.backend}/products/find-all`);
     const products = await res.json();
     fetchCategories()
     setDataProducts(products);
@@ -49,7 +49,7 @@ export default function Products() {
 
   const fetchOneProduct = async (productId: Number) => {
     const resOneProduct = await fetch(
-      `http://localhost:8080/api/products/find-one/${productId}`
+      `${configs.backend}/products/find-one/${productId}`
     );
     const productDetails = await resOneProduct.json();
     setProductDetails(productDetails);
@@ -86,7 +86,7 @@ export default function Products() {
 
   useEffect(() => {
     fetchProducts();
-  }, [fetchProducts]);
+  }, []);
 
   return (
     <div>

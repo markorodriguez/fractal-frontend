@@ -38,7 +38,7 @@ export default function OrderDetails() {
 
     const fetchOrderData = async (orderId: number) => {
         const resOrder = await fetch(
-            `http://localhost:8080/api/orders/find-one/${orderId}`
+            `${configs.backend}/orders/find-one/${orderId}`
         );
 
         try {
@@ -51,7 +51,7 @@ export default function OrderDetails() {
 
     const fetchOrderDetails = async (orderId: number) => {
         const resOrderDtls = await fetch(
-            `http://localhost:8080/api/order/${orderId}`
+            `${configs.backend}/order/${orderId}`
         );
 
         const orderDtls = await resOrderDtls.json();
@@ -92,7 +92,12 @@ export default function OrderDetails() {
     const fetchProducts = async () => {
         const resProducts = await fetch(`${configs.backend}/products/find-all`);
         const producstData = await resProducts.json();
-        setProducts(producstData);
+
+        console.log(producstData)
+
+        const activeProducts = producstData.filter((product:any)=>product.productStatus === "Active")
+
+        setProducts(activeProducts);
     };
 
     const fetchOneProduct = async (prodId: number) => {
