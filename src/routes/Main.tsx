@@ -14,7 +14,7 @@ export default function Main() {
                 <li>Go to <Link to="/products">Products</Link></li>
                  <br />
                 <li>Frontend Repo: <a href="https://github.com/markorodriguez/fractal-frontend" target="_blank" rel='noreferrer'>Here</a></li>
-                <li>Backend Repo: <a href="https://github.com/markorodriguez/fractal-backend"  target="_blank" rel='noreferrer'></a> </li>
+                <li>Backend Repo: <a href="https://github.com/markorodriguez/fractal-backend"  target="_blank" rel='noreferrer'>Here</a></li>
             </ul>
          
         </Container>
